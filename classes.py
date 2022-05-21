@@ -8,7 +8,8 @@ class Information:
 class Client(Information):
     phone_number=None
 
-    def __init__(self,id ,full_name,age,id_no,phone_number):
+
+    def new_client (self,id ,full_name,age,id_no,phone_number):
         self.id=id
         self.full_nmae=full_name
         self.age=age
@@ -20,7 +21,7 @@ class Librarian(Information):
     emplyment_type=None     #(full/part)
 
 
-    def __init__(self,id ,full_name,age,id_no,emplyment_type):
+    def new_librarian (self,id ,full_name,age,id_no,emplyment_type):
         self.id=id
         self.full_nmae=full_name
         self.age=age
@@ -35,7 +36,8 @@ class Book:
     author=None
     status=None             #(Active-Inactive)
 
-    def __init__(self,id,title,description,author):
+
+    def new_book (self,id,title,description,author):
         self.id=id
         self.title=title
         self.descrition=description
