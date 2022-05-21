@@ -52,6 +52,9 @@ class Borrow_order(Client,Book):
     book_id=Book.id
     status=Book.status             #(Active-Expired-Cancelled)
 
+    def __int__(self):
+        pass
+
 
 
 

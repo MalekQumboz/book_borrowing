@@ -2,7 +2,7 @@ from classes import Client
 from classes import Librarian
 from classes import Book
 from classes import Borrow_order
-
+from datetime import datetime
 #
 # print("""
 # 1. Create a new client.
@@ -108,11 +108,13 @@ from classes import Borrow_order
 list_clients=[]
 list_librarianes=[]
 list_books=[]
+list_borrow_order=[]
 
 check="true"
 input_2=None
 id=1
 id_book=1
+id_borrow=1
 
 while check=="true":
     print("""
@@ -215,13 +217,19 @@ while check=="true":
         else:
             print("The service number you entered does not exist.")
 
-    elif input_1==4:     #borrow a book
-        input_id_book=input("Enter the id of the book you want to borrow:")
+
+
+    elif input_1==4:                            #borrow a book
+
+
+        input_id_book=int(input("Enter the id of the book you want to borrow:"))
         registered=None
 
+        #borrow_order=Borrow_order()
+
         for a in list_books:
-            print(a)
-            if input_id_book == a:
+
+            if input_id_book == a.id:
                 registered=1
 
             else:
@@ -229,16 +237,41 @@ while check=="true":
 
 
         if registered==1:
-            pass
+            input_3=input("Enter the ID number to borrow:")
+
+            reserv=1
+            for s in list_clients:
+                if input_3== s.id_no:
+                    reserv=2
+
+            if reserv==1:
+                print("There is no account for you, create an account before borrowing")
+            elif reserv==2:
+
+                # borrow_order.id=id_borrow
+                # borrow_order.date=datetime.now()  #for show time
+                # borrow_order.client_id=input_3
+                # borrow_order.book_id=input_id_book
+                # borrow_order.status="Not Available"
+
+                print("The book has been borrowed successfully.")
+
         else:
             print("The book is not registered in the library")
 
 
+        id_borrow+=1
 
-
-
-
-
+        input_2 = int(input("""
+                                1. If you want to go back to the main menu, enter 1.
+                                2. If you want to exit the program, enter number 2.
+                                """))
+        if input_2 == 1:
+            pass
+        elif input_2 == 2:
+            quit()  # for exit
+        else:
+            print("The service number you entered does not exist.")
 
 
 
@@ -254,6 +287,5 @@ while check=="true":
 
 else:
     quit()  # for exit
-
 
 
